@@ -1,0 +1,104 @@
+USE [DB59]
+GO
+/****** Object:  Table [dbo].[tbl_bookgenerator]    Script Date: 15-Apr-19 4:48:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tbl_bookgenerator](
+	[disease id] [int] NOT NULL,
+	[description] [varchar](255) NOT NULL,
+	[category] [varchar](20) NOT NULL,
+	[treatement] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_tbl_bookgenerator] PRIMARY KEY CLUSTERED 
+(
+	[disease id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[tbl_disease]    Script Date: 15-Apr-19 4:48:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tbl_disease](
+	[id] [int] NOT NULL,
+	[name] [varchar](20) NOT NULL,
+	[category] [varchar](20) NOT NULL,
+	[treatement] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_tbl_disease] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[tbl_predictor]    Script Date: 15-Apr-19 4:48:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tbl_predictor](
+	[symptom desc] [varchar](255) NOT NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[tbl_symptoms]    Script Date: 15-Apr-19 4:48:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tbl_symptoms](
+	[disease id] [int] NOT NULL,
+	[description] [varchar](255) NOT NULL,
+	[category] [varchar](20) NOT NULL,
+ CONSTRAINT [PK_tbl_symptoms] PRIMARY KEY CLUSTERED 
+(
+	[disease id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[tbl_user]    Script Date: 15-Apr-19 4:48:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tbl_user](
+	[Id] [int] NOT NULL,
+	[firstname] [varchar](20) NOT NULL,
+	[lastname] [varchar](20) NOT NULL,
+	[discriminator] [varchar](20) NOT NULL,
+	[cnic] [char](155) NOT NULL,
+	[email] [varchar](30) NOT NULL,
+	[password] [varchar](30) NOT NULL,
+ CONSTRAINT [PK_tbl_user] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+
+
